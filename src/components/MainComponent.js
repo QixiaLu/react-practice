@@ -30,7 +30,7 @@ render(){
         onClick={(dishId) => this.onDishSelect(dishId)}/>
     
     {/* filter can create a new array */}
-    {/* To pass the selected dish info to dishdetail by using id */}
+    {/* To pass the whole dish info to dishdetail by using id */}
     <DishDetail dish = {this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}/>
     </div>
     )
