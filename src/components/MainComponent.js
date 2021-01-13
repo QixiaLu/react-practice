@@ -1,5 +1,6 @@
-import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './MenuComponent';
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
 import DishDetail from './DishDetailComponent';
 import { DISHES } from '../shared/Dishes';
 import { Component } from 'react';
@@ -20,11 +21,7 @@ onDishSelect(dishId){
 render(){
   return (
     <div>
-     <Navbar dark color="primary">
-       <div className="container">
-          <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-        </div>
-    </Navbar>
+    <Header />
     {/* onclick is used to pass onDishSelect to menu componenet */}
     <Menu dishes={this.state.dishes} 
         onClick={(dishId) => this.onDishSelect(dishId)}/>
@@ -32,6 +29,7 @@ render(){
     {/* filter can create a new array */}
     {/* To pass the whole dish info to dishdetail by using id */}
     <DishDetail dish = {this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}/>
+    <Footer />
     </div>
     )
   }
