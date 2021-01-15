@@ -4,6 +4,7 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishDetailComponent';
+import About from './AboutComponent';
 import { DISHES } from '../shared/Dishes';
 import { COMMENTS } from '../shared/Comments';
 import { LEADERS } from '../shared/Leaders';
@@ -51,6 +52,7 @@ render(){
     <Header />
     <Switch>
       <Route path = '/home' component ={HomePage} />
+      <Route path = '/aboutus' component = {() => <About leaders ={this.state.leaders} />} />
       {/* exact will use to referto the exat menu page isntead of the following two */}
       <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes}/>} />
       {/* the use of :dishId*/}
