@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardTitle, CardBody, Breadcrumb, BreadcrumbIte
     Button, ModalBody, ModalHeader, Modal, Row, Label, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import {Loading} from './LoadingComponent';
 
 const required = (val) => val;
 const maxLength = (len) => (val) => !(val) || (val.length<=len);
@@ -149,12 +150,27 @@ const minLength = (len) => (val) => (val) && (val.length > len);
         }
     }
 
-
+    
     const DishDetail = (props) => {
-        const dish = props.dish;
-        // const c = [dish.comments];
+        if (props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            )
+        } else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">
+                        <h4> {props.errMess}</h4>
+                    </div>
+                </div>
+            )
+        }
         // Add this to prevent null pointer
-        if (dish) {
+        else if (props.dish != null) {
             return(
                 <div className="container">
                     <div className="row">
