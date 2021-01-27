@@ -92,7 +92,6 @@ const minLength = (len) => (val) => (val) && (val.length > len);
                                             Submit
                                         </Button>
                                     </Col>
-
                                 </Row>
                             </LocalForm>
                         </ModalBody>
